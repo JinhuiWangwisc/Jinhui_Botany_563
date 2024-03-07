@@ -30,7 +30,16 @@ https://tcoffee.org/Projects/tcoffee/documentation/index.html#
 * Choosing the right package: T-Coffee is probably the most versatile, but it comes at a price, its default aligner being currently slower than many alternative packages. We can select which one to use according to our own usage.
 * ! M-coffee: need more time to try.
 * ! default setting: need more time to reading.
+PRACTICE: This is much more accurate than MAFFT!
 
+## Orthologs identification & Orthofinder
+### local blastp
+* previous I have used local blast to identify the paralogs and othologs based on similarity (>50) and e-value (0)  
+* This is time consuming because need build every database for every species.
+### Orthofinder
+* Having compared with local blastp, this method is super fast and accurate to identify all paralogs and othologs (Diamond)
+* The command line is also easy  
+??? couldn't othofinder change the default e-value?
 ## Distance and parsimony methods for constructing tree using R
 
 
