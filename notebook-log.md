@@ -275,37 +275,5 @@ contype=halfcompat/Allcompat
 sumt: allow to examine the error/standard deciation associated with each clade in the tree (less supported clade: posterior probabilities <0.95)
 
 
-
-
-
 ## view tree sofeware  
 iTOL/ggtree/figtree/Treeviewer
-## Selection analysis & Datamonkey/Hyphy
-* sequence name should be right (no!@#...) and corresponding to the tree branches name.
-* manual correct alignment (delete the gaps/strange sequences)
-* must have good alignment (hyphy is very sensitive to gaps)
-* online: datamonkey.org  
-  commondline: hyphy
-
-* preparation: alignment file/user tree file  
-  (if datamonkey: convert tree format on http://phylotree.hyphy.org/# & the alignment file last line (will be automatically recognized as user tree))
-  （if local hyphy: http://vision.hyphy.org/; https://www.hyphy.org/resources/json-fields.pdf）
-* model selection links:  
-  https://www.hyphy.org/about/  
-  https://evomics.org/wp-content/uploads/2016/09/Molecular-adaptation.pdf  
-  https://www.jianshu.com/p/e8134ba7892e  
-  https://pubmed.ncbi.nlm.nih.gov/25697341/  
-  https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1002764
-
-## Protein vision
-* Protein structure prediction
-  Alphafold 2 (google colab/limited GPU and need money...)
-  https://colab.research.google.com/github/deepmind/alphafold/blob/main/notebooks/AlphaFold.ipynb
-  https://zhuanlan.zhihu.com/p/609120902
-
-
-* Protein structure vision
-  pymol https://zhuanlan.zhihu.com/p/524997356
-``` pymol install
-conda install -n pymol_env -c conda-forge pymol-open-source pandas -y
-```
