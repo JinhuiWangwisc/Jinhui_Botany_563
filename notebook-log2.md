@@ -309,3 +309,31 @@ iTOL/ggtree/figtree/Treeviewer
 ``` pymol install
 conda install -n pymol_env -c conda-forge pymol-open-source pandas -y
 ```
+
+
+# Selection experiment
+https://github.com/TheDBStern/Baltic_Lab_Wild/blob/master/README.md
+### SNP calling
+_**Filter adapter sequences and low-quality bases (Raw pool-seq reads)**_
+? should mix all laboratory selection lines?  
+Trimmomatic： QC (LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36)  
+
+**_Map to reference genome/ rm duplicated reads/ realign indels_**  
+BWA-MEM (only retain mapping quality >20)
+Picard ((http://broadinstitute.github.io/picard)  
+GATK  
+
+**_SNPs calling & bi-allelic SNPs retaining_**
+VarScan mpileup2cns
+```
+–min-coverage  20  –min-avg-qual  20 –min-var-freq  0.0001  –variants  –output-vcf  
+```
+R package poolfstat  
+retaining  bi-allelic  SNPs  with  4 reads  required  for  a  base  call,  an  overall  minimum  MAF  of  0.01,  and  a  minimum and  maximum  coverage  of  10  and  200  reads,  respectively  
+
+**_Estimating effective population size according to the change in SNP frequencies_** 
+R package poolSeq  
+Plan I (census-size dependent) & Plan II (census-size independent) 
+WFABC
+
+
