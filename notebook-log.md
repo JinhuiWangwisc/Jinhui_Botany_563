@@ -264,9 +264,6 @@ ESS > 200 is good
 > Mrbayes sump .p
 ```
 
-
-
-
 **_summerizing the tree sample .t_**  
 ```
 MrBayes > sumt conformat=Simple contype=Halfcompat relburnin=yes burninfrac=0.25
@@ -274,6 +271,19 @@ MrBayes > sumt conformat=Simple contype=Halfcompat relburnin=yes burninfrac=0.25
 contype=halfcompat/Allcompat
 sumt: allow to examine the error/standard deciation associated with each clade in the tree (less supported clade: posterior probabilities <0.95)
 
+## The coalescent method-ASTRAL-3
+https://github.com/smirarab/ASTRAL/blob/master/astral-tutorial.md  
+https://arxiv.org/abs/1904.03826
+* install check
+```
+ java -jar astral.5.7.8.jar -i test_data/song_primates.424.gene.tre
+```
+```
+java -jar astral.5.7.8.jar -i test_data/song_mammals.424.gene.tre -o test_data/song_mammals.tre
+java -Djava.library.path=./lib/ -jar astralmp.5.7.8.jar -i test_data/song_mammals.424.gene.tre -o test_data/song_mammals.tre
+```
+! need more data to better infer the species tree
 
-## view tree sofeware  
+
+## view tree software  
 iTOL/ggtree/figtree/Treeviewer
