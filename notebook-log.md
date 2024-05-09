@@ -2,7 +2,7 @@ This is for notes!
 ## Git
 ### github push changes
 
-Cd Jinhui_Botany_563 
+cd Jinhui_Botany_563  
 Nano/open [notebook-log.md](notebook-log.md)  
 git add .  
 git commit -m "informative message" # “name” can be changed according to need  
@@ -12,6 +12,7 @@ Git push
 Setting-developer setting-generate new token
 
 ## Dataset
+### Filter & background
 * Na+/K+-ATPase gene family sequence from three clade of Eurytemora affinis species complex
 * Na+/K+-ATPase gene family sequence from other Arthropod (Chelicerata/Myriapoda/crustacea/hexapoda)  
 * Ref sequences filter based on:  
@@ -21,6 +22,21 @@ Setting-developer setting-generate new token
   MAX SCAFOLD COUNT=9000
 * Lee lab has found signatures of parallel selection acting on the paralogs of NKA gene family during independent invasion from saltwater to freshwater.  
   The goal is to construct the evolutionary history and molecular evolution of this crucial ion transporter in Arthropoda. 
+### Data
+* E. affinis: 5 paralogs in Red clade; 5 paralog in Gulf clade; 6 paralog in Purple clade (1 of red clade and 1 of gulf clade is short and this may due to bad assembly/pseudogene)
+* Arthropoda: 50 species across Chelicerata/Crustacea/Hexapoda/myriapoda; 129 paralogs and orthologues within Arthropoda
+
+## Paralogs identification & BlastP
+
+## Orthologs identification & Orthofinder
+### local blastp
+* previous I have used local blast to identify the paralogs and othologs based on similarity (>50) and e-value (0)  
+* This is time consuming because need build every database for every species.
+### Orthofinder
+* Having compared with local blastp, this method is super fast and accurate to identify all paralogs and othologs (Diamond)
+* The command line is also easy  
+
+
 
 ## Multiple sequence alignments (MSA) & T-coffee
 https://tcoffee.org/Projects/tcoffee/documentation/index.html#  
@@ -37,14 +53,7 @@ t_coffee your_sequences.fasta -type=dna -output=clustalw
 PRACTICE: This is much more accurate than MAFFT!
 
 
-## Orthologs identification & Orthofinder
-### local blastp
-* previous I have used local blast to identify the paralogs and othologs based on similarity (>50) and e-value (0)  
-* This is time consuming because need build every database for every species.
-### Orthofinder
-* Having compared with local blastp, this method is super fast and accurate to identify all paralogs and othologs (Diamond)
-* The command line is also easy  
-??? couldn't othofinder change the default e-value?
+## Phylogenetic tree
 ## Distance and parsimony methods for constructing tree using R
 
 
@@ -168,8 +177,8 @@ bpcomp -x 1000 10 <chain1> <chain2> # using a burn-in of 1000, and sub-sampling 
 **maxdiff_ < 0.1**: good run  
 **maxdiff < 0.3**: acceptable  
 **0.3 < maxdiff < 1**: the sample is not yet sufficiently large and the chain have not convergaed, but this is on the right track   
-if maxdiff =1 even after 10,000 points, this indicateds that at least one of the runs is stuck in a local maximum.
-
+if maxdiff =1 even after 10,000 points, this indicateds that at least one of the runs is stuck in a local maximum.  
+**after bpcomp, you will get a tree document which include the _current best tree_
 
 * _others_  
 -t    <treefile>  
@@ -285,5 +294,23 @@ java -Djava.library.path=./lib/ -jar astralmp.5.7.8.jar -i test_data/song_mammal
 ! need more data to better infer the species tree
 
 
+
 ## view tree software  
 iTOL/ggtree/figtree/Treeviewer
+## change tip labels 
+https://stackoverflow.com/questions/57547769/change-tip-labels-in-phylogeny-in-r  
+```
+library("ape")
+
+orig_tiplabels <- c("Alice", "Bob", "Cindy")
+orig_tree <- rtree(n = 3, tip.label = orig_tiplabels)
+plot(orig_tree)
+
+new_tiplabels <- c("Debbie", "Elrond", "Frank")
+orig_tree$tip.label <- new_tiplabels
+plot(orig_tree)
+```
+
+## Others
+* estimate time/sepciation age: need to estimate the time after infer the tree
+* Phylogeny tree can be affected by a lot of reasons. The data is not just sequences: must be accurate and good quality sequences. But some protein is diverse. **_SO, YOU COULD LEAVE IDENTITY > 70 SEQUENCES RO MAKE SURE GOOD ALIGHMENT AND COULD REFLECT THEIR TRUE RELATIONSHIP._**
